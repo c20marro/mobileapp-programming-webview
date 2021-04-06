@@ -21,10 +21,14 @@ public class MainActivity extends AppCompatActivity {
 
     public void showExternalWebPage(){
         // TODO: Add your code for showing external web page here
+        myWebView.loadUrl("https://www.youtube.com/");
+
     }
 
     public void showInternalWebPage(){
         // TODO: Add your code for showing internal web page here
+        myWebView.loadUrl("https://www.youtube.com/");
+
     }
 
     @Override
@@ -37,6 +41,9 @@ public class MainActivity extends AppCompatActivity {
         myWebView.setWebViewClient(new WebViewClient());
         WebSettings webSettings = myWebView.getSettings();
         webSettings.setJavaScriptEnabled(true);
+        myWebView.loadUrl("https://www.youtube.com/");
+
+
 
 
 
