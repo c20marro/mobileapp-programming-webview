@@ -5,6 +5,8 @@ import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
@@ -13,6 +15,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 public class MainActivity extends AppCompatActivity {
+    // Add a private member variabel
+     WebView myWebView;
 
     public void showExternalWebPage(){
         // TODO: Add your code for showing external web page here
@@ -28,6 +32,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        WebView myWebView = findViewById(R.id.my_webview);
+        myWebView.setWebViewClient(new WebViewClient());
 
         /*
         * Rename your App. Tip: Values->Strings
