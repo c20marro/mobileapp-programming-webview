@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
     public void showInternalWebPage(){
         // TODO: Add your code for showing internal web page here
         WebView myWebView = findViewById(R.id.my_webview);
-        myWebView.loadUrl("https://www.google.se/");
+        myWebView.loadUrl("file:///android_asset/internhemsida.html");
 
     }
 
