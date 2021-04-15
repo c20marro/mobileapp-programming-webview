@@ -1,42 +1,93 @@
 
-# Rapport
+# Assignment 2
 
-**Skriv din rapport här!**
-
-_Du kan ta bort all text som finns sedan tidigare_.
-
-## Följande grundsyn gäller dugga-svar:
-
-- Ett kortfattat svar är att föredra. Svar som är längre än en sida text (skärmdumpar och programkod exkluderat) är onödigt långt.
-- Svaret skall ha minst en snutt programkod.
-- Svaret skall inkludera en kort övergripande förklarande text som redogör för vad respektive snutt programkod gör eller som svarar på annan teorifråga.
-- Svaret skall ha minst en skärmdump. Skärmdumpar skall illustrera exekvering av relevant programkod. Eventuell text i skärmdumpar måste vara läsbar.
-- I de fall detta efterfrågas, dela upp delar av ditt svar i för- och nackdelar. Dina för- respektive nackdelar skall vara i form av punktlistor med kortare stycken (3-4 meningar).
-
-Programkod ska se ut som exemplet nedan. Koden måste vara korrekt indenterad då den blir lättare att läsa vilket gör det lättare att hitta syntaktiska fel.
+För att ändra namnet på min applikation så ändrade jag i filen strings.XML. Här finns en det taggar,
+vara en av dem heter "app_name". Här ändrades namnet genom attskriva detnya namnet mellan taggarna.
+```
+<string name="app_name">Dugga 2</string>
+``` 
+Därefter so gav jag applikationen "internt acces" i filen AndroidManifest.xml. Detta görs med hjälp
+av en users-permission tagg engligt nedan.
+```
+<uses-permission android:name="android.permission.INTERNET" />
+```
+Sedan skapades ett Webview element i mitt conten_main.xml fil. Här byttes den xisterande "TextView"
+ut mot "WebView". Här gav även min WebView ett ID som är: "my_webview".
 
 ```
-function errorCallback(error) {
-    switch(error.code) {
-        case error.PERMISSION_DENIED:
-            // Geolocation API stöds inte, gör något
-            break;
-        case error.POSITION_UNAVAILABLE:
-            // Misslyckat positionsanrop, gör något
-            break;
-        case error.UNKNOWN_ERROR:
-            // Okänt fel, gör något
-            break;
+<WebView
+        android:id="@+id/my_webview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="70dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="0dp" />
+```
+
+Därefter så skapades en private member variabel som är av datatypen webview. Sedan används denna variabel
+för att lokalisera det ID som min webview har. 
+```
+  WebView myWebView;
+  WebView myWebView = findViewById(R.id.my_webview);
+```
+
+Sedan aktiverade jag så att min applikationkananvänds sig utav javascript. 
+```
+   WebSettings webSettings = myWebView.getSettings();
+   webSettings.setJavaScriptEnabled(true);
+```
+
+Sedan skapades en asset mapp där jag lade in en HTML hemsida som ska vara applikationens interna 
+hemsida. 
+
+```
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    
+    </head>
+    <body>
+    <h1>Detta är min interna hemsida</h1>
+    </body>
+    </html>
+```
+
+Därefter lade jag in två olika URL:er i två olika funktioner där den ena ska läsa in den interna 
+hemsidan som jag skapat medans den andra ska öpnna en externa hemsida som jag har hämtat ifrån 
+internet. Här återanvändes lite tidigare kod för att hitta ID till min webview, därefter så används
+en "loadURL()" där jag lade in de URL:er som ska läsas in.
+
+```
+ public void showExternalWebPage(){
+       
+        WebView myWebView = findViewById(R.id.my_webview);
+        myWebView.loadUrl("https://www.youtube.com/");
+
     }
-}
+```
+```
+ public void showInternalWebPage(){
+
+        WebView myWebView = findViewById(R.id.my_webview);
+        myWebView.loadUrl("file:///android_asset/internhemsida.html");
+
+    }
 ```
 
-Bilder läggs i samma mapp som markdown-filen.
+Det sista som görs är att jag kallar på dessa funktioner i en if statement som säger att om man 
+klickar på kappen för extern hemsida, så visa extern hemsida. Samma sakgäller för knappen för intern
+hemsida, och då visas i stället den. 
 
-![](android.png)
 
-Läs gärna:
 
-- Boulos, M.N.K., Warren, J., Gong, J. & Yue, P. (2010) Web GIS in practice VIII: HTML5 and the canvas element for interactive online mapping. International journal of health geographics 9, 14. Shin, Y. &
-- Wunsche, B.C. (2013) A smartphone-based golf simulation exercise game for supporting arthritis patients. 2013 28th International Conference of Image and Vision Computing New Zealand (IVCNZ), IEEE, pp. 459–464.
-- Wohlin, C., Runeson, P., Höst, M., Ohlsson, M.C., Regnell, B., Wesslén, A. (2012) Experimentation in Software Engineering, Berlin, Heidelberg: Springer Berlin Heidelberg.
+
+
+![](intern.png)
+![](extern.png)
+
+
