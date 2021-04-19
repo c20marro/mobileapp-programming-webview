@@ -62,7 +62,8 @@ hemsida.
 
 Därefter lade jag in två olika URL:er i två olika funktioner där den ena ska läsa in den interna 
 hemsidan som jag skapat medans den andra ska öpnna en externa hemsida som jag har hämtat ifrån 
-internet. Här används min webview variabel för att ladda en "loadURL()". 
+internet. Här används min webview variabel för att ladda en hemsida med hjälp av"loadURL()". Den URL
+som ska laddas lades in i parantesen. 
 
 ```
  public void showExternalWebPage(){
