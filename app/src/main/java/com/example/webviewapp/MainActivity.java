@@ -21,14 +21,14 @@ public class MainActivity extends AppCompatActivity {
 
     public void showExternalWebPage(){
 
-        myWebView = findViewById(R.id.my_webview);
+
         myWebView.loadUrl("https://www.youtube.com/");
 
     }
 
     public void showInternalWebPage(){
 
-        myWebView = findViewById(R.id.my_webview);
+
         myWebView.loadUrl("file:///android_asset/internhemsida.html");
 
     }
@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        WebView myWebView = findViewById(R.id.my_webview);
+        myWebView = findViewById(R.id.my_webview);
         myWebView.setWebViewClient(new WebViewClient());
         WebSettings webSettings = myWebView.getSettings();
         webSettings.setJavaScriptEnabled(true);
@@ -100,13 +100,11 @@ public class MainActivity extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_external_web) {
-            Log.d("==>","Will display external web page");
             showExternalWebPage();
             return true;
         }
 
         if (id == R.id.action_internal_web) {
-            Log.d("==>","Will display internal web page");
             showInternalWebPage();
             return true;
         }

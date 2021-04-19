@@ -25,11 +25,14 @@ ut mot "WebView". Här gav även min WebView ett ID som är: "my_webview".
         tools:layout_editor_absoluteX="0dp" />
 ```
 
-Därefter så skapades en private member variabel som är av datatypen webview. Sedan används denna variabel
-för att lokalisera det ID som min webview har. 
+Därefter så deklareras en private member variabel som är av datatypen webview. 
 ```
   WebView myWebView;
-  WebView myWebView = findViewById(R.id.my_webview);
+```
+Därefter så instatierar jag variabeln i min on Create() för att kunna hitta min vy med hjälp av ID't
+my_webview. Det som ligger i on create sker bara en gång när man startar applikationen. 
+```
+    myWebView = findViewById(R.id.my_webview);
 ```
 
 Sedan aktiverade jag så att min applikationkananvänds sig utav javascript. 
@@ -59,13 +62,12 @@ hemsida.
 
 Därefter lade jag in två olika URL:er i två olika funktioner där den ena ska läsa in den interna 
 hemsidan som jag skapat medans den andra ska öpnna en externa hemsida som jag har hämtat ifrån 
-internet. Här används min webview variabel för att hitta ID till min webview, därefter så används
-en "loadURL()" där jag lade in de URL:er som ska läsas in.
+internet. Här används min webview variabel för att ladda en "loadURL()". 
 
 ```
  public void showExternalWebPage(){
        
-        WebView myWebView = findViewById(R.id.my_webview);
+   
         myWebView.loadUrl("https://www.youtube.com/");
 
     }
@@ -73,18 +75,29 @@ en "loadURL()" där jag lade in de URL:er som ska läsas in.
 ```
  public void showInternalWebPage(){
 
-        WebView myWebView = findViewById(R.id.my_webview);
+        
         myWebView.loadUrl("file:///android_asset/internhemsida.html");
 
     }
 ```
 
 Det sista som görs är att jag kallar på dessa funktioner i en if statement som säger att om man 
-klickar på kappen för extern hemsida, så visa extern hemsida. Samma sakgäller för knappen för intern
+klickar på kappen för extern hemsida, så visa extern hemsida. Samma sak gäller för knappen för intern
 hemsida, och då visas i stället den. 
 
 
+```
+        if (id == R.id.action_external_web) {
+            showExternalWebPage();
+            return true;
+        }
 
+        if (id == R.id.action_internal_web) {
+            showInternalWebPage();
+            return true;
+        }
+    
+```
 
 
 ![](intern.png)
