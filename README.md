@@ -59,7 +59,7 @@ hemsida.
 
 Därefter lade jag in två olika URL:er i två olika funktioner där den ena ska läsa in den interna 
 hemsidan som jag skapat medans den andra ska öpnna en externa hemsida som jag har hämtat ifrån 
-internet. Här återanvändes lite tidigare kod för att hitta ID till min webview, därefter så används
+internet. Här används min webview variabel för att hitta ID till min webview, därefter så används
 en "loadURL()" där jag lade in de URL:er som ska läsas in.
 
 ```

@@ -21,14 +21,14 @@ public class MainActivity extends AppCompatActivity {
 
     public void showExternalWebPage(){
 
-        WebView myWebView = findViewById(R.id.my_webview);
+        myWebView = findViewById(R.id.my_webview);
         myWebView.loadUrl("https://www.youtube.com/");
 
     }
 
     public void showInternalWebPage(){
 
-        WebView myWebView = findViewById(R.id.my_webview);
+        myWebView = findViewById(R.id.my_webview);
         myWebView.loadUrl("file:///android_asset/internhemsida.html");
 
     }
